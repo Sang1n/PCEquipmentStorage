@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: supersecret
+      POSTGRES_DB: pc_equipment_db
+    ports:
+      - target: 5432
+        published: 5432
+        protocol: tcp
+        mode: host
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  app:
+    image: pcstorage-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    ports:
+      - target: 5000
+        published: 5000
+        protocol: tcp
+        mode: host
+    environment:
+      ConnectionStrings__Default: Host=db;Port=5432;Database=pc_equipment_db;Username=postgres;Password=supersecret
+    networks:
+      - backend
+
+volumes:
+  pgdata:
+
+networks:
+  backend:

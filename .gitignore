@@ -1,0 +1,44 @@
+# === .NET build artifacts ===
+bin/
+obj/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+pcstorage.tar
+
+# === Rider / VS Code / VS ===
+.vscode/
+.idea/
+*.code-workspace
+.vs/
+
+# === Logs and diagnostics ===
+*.log
+logs/
+*.tlog
+
+# === Docker ===
+**/Dockerfile.*
+docker-compose.override.yml
+.env
+
+# === EF Core Migrations Snapshots ===
+Migrations/*Snapshot.cs
+
+# === Sensitive config ===
+#appsettings.Development.json
+#appsettings.Local.json
+#wwwroot/config.json
+
+# === npm / node_modules (если вдруг есть фронт на npm) ===
+node_modules/
+dist/
+*.tsbuildinfo
+
+# === Others ===
+*.db
+*.sqlite
+*.DS_Store
+Thumbs.db
