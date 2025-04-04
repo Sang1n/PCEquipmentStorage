@@ -35,24 +35,36 @@
 
 ```bash
 git clone https://github.com/Sang1n/PCEquipmentStorage.git
-cd PCEquipmentStorage
+cd PCEquipmentStorage/PCEquipmentStorage
+```
 
-2. Deploy the stack
+2. **Build app**
 
+```bash
+docker build -t pcstorage-app:latest .
+```
+
+3. **Deploy the stack**
+
+```bash
+cd ..
 docker stack deploy -c docker-compose.yml pcstack
+```
 
-3. Open in browser
+4. **Open in browser**
 
+```bash
 http://localhost:5000
+```
 
-⚙️ Notes
+⚙️ **Notes**
 The record limit of 2000 is enforced in the controller layer for convenience during testing.
 It can also be enforced directly in the database level using constraints or triggers.
 
 The frontend and backend are implemented in the same solution and served from the wwwroot directory.
 However, they can easily be separated into two standalone services for more flexibility (e.g., SPA with independent frontend hosting).
 
-📌 Constraints
+📌 **Constraints**
 Max 2000 records in the Equipment table
 
 Inventory number must be unique (up to 32 characters)
@@ -63,6 +75,6 @@ Room number: integer between 1 and 1000
 
 Equipment type is selected from a predefined dictionary
 
-👤 Author
+👤 **Author**
 Sangin
 GitHub: github.com/Sang1n

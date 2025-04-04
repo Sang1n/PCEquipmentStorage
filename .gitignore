@@ -30,7 +30,7 @@ Migrations/*Snapshot.cs
 # === Sensitive config ===
 #appsettings.Development.json
 #appsettings.Local.json
-#wwwroot/config.json
+wwwroot/config.json
 
 # === npm / node_modules (если вдруг есть фронт на npm) ===
 node_modules/
